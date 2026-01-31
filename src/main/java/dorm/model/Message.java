@@ -17,7 +17,7 @@ public class Message {
         this.sentAt = sentAt;
     }
   
-//Accessors 
+// Getters & Setters
   
     public String getId() {
         return id;
