@@ -12,6 +12,8 @@ public class DormApplication {
         this.status = ApplicationStatus.NOT_SEEN;
     }
 
+// Getters & Setters
+
     public String getId() {
         return id;
     }
