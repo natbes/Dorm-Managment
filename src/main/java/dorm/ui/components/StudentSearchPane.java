@@ -178,16 +178,11 @@ public class StudentSearchPane extends VBox {
         }
     }
     
-    /**
-     * Set callback for showing alerts
-     */
+    
     public void setAlertCallback(Consumer<String> callback) {
         this.alertCallback = callback;
     }
     
-    /**
-     * Set callback for when save is completed
-     */
     public void setOnSaveCallback(Runnable callback) {
         this.onSaveCallback = callback;
     }
