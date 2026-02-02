@@ -1,16 +1,10 @@
 package dorm.model;
 
 public class BuildingAssignment {
-    private final User proctor;
     private String buildingName;
 
-    public BuildingAssignment(User proctor, String buildingName) {
-        this.proctor = proctor;
+    public BuildingAssignment(String buildingName) {
         this.buildingName = buildingName;
-    }
-
-    public User getProctor() {
-        return proctor;
     }
 
     public String getBuildingName() {
