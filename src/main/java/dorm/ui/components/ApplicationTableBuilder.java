@@ -21,9 +21,7 @@ public class ApplicationTableBuilder {
         this.selectionMap = selectionMap;
     }
     
-    /**
-     * Build all standard columns for the application table
-     */
+    
     public void buildAllColumns() {
         table.getColumns().clear();
         
