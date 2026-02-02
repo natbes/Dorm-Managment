@@ -29,7 +29,7 @@ public class DatabaseDormService {
         this.messageRepository = messageRepository;
     }
     
-    // ========== Authentication ==========
+    
     
     public Optional<Object> authenticate(String username, String password) {
         Optional<User> user = userRepository.findByUsername(username)
@@ -47,7 +47,7 @@ public class DatabaseDormService {
         return Optional.empty();
     }
     
-    // ========== Student Management ==========
+    
 
     public boolean isUsernameAvailable(String username) {
         // Check in users
@@ -137,8 +137,9 @@ public class DatabaseDormService {
     public void updateStudent(Student student) {
         studentRepository.update(student);
     }
+
     
-    // ========== Application Management ==========
+    // manage the app
     
     public DormApplication submitPhaseOneApplication(Student student, SponsorshipType sponsorshipType,
                                                       Residency residency, String city, String subcity, 
@@ -241,8 +242,9 @@ public class DatabaseDormService {
             changeApplicationStatus(application, ApplicationStatus.ASSIGNED, "");
         });
     }
+
     
-    // ========== User Management ==========
+    // manage users
     
     public List<User> getUsers() {
         return userRepository.findAll();
@@ -259,8 +261,9 @@ public class DatabaseDormService {
     public void removeUser(User user) {
         userRepository.delete(user);
     }
+
     
-    // ========== Announcements ==========
+    // announcements
     
     public void addAnnouncement(String title, String body, String createdBy) {
         Announcement announcement = new Announcement(
@@ -285,8 +288,9 @@ public class DatabaseDormService {
     public void deleteAnnouncement(Announcement announcement) {
         announcementRepository.delete(announcement);
     }
+
     
-    // ========== Messaging ==========
+   //message
     
     public void sendMessage(String fromUser, String toUser, String content) {
         Message message = new Message(
