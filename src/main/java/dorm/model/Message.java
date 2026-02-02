@@ -8,17 +8,21 @@ public class Message {
     private final String toUser;
     private final String content;
     private final LocalDateTime sentAt;
+    private boolean read;
 
     public Message(String id, String fromUser, String toUser, String content, LocalDateTime sentAt) {
+        this(id, fromUser, toUser, content, sentAt, false);
+    }
+
+    public Message(String id, String fromUser, String toUser, String content, LocalDateTime sentAt, boolean read) {
         this.id = id;
         this.fromUser = fromUser;
         this.toUser = toUser;
         this.content = content;
         this.sentAt = sentAt;
+        this.read = read;
     }
-  
-// Getters & Setters
-  
+
     public String getId() {
         return id;
     }
@@ -37,5 +41,13 @@ public class Message {
 
     public LocalDateTime getSentAt() {
         return sentAt;
+    }
+
+    public boolean isRead() {
+        return read;
+    }
+
+    public void setRead(boolean read) {
+        this.read = read;
     }
 }
