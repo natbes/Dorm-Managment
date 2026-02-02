@@ -113,7 +113,7 @@ public class LoginViewDb {
 
         studentIdField.setPromptText("UGR/XXXX/YY");
         
-        // Note: Student ID will be used as username for login
+       
         Label idNote = new Label("(This will be your login username)");
         idNote.setStyle("-fx-font-size: 10px; -fx-text-fill: gray;");
         
