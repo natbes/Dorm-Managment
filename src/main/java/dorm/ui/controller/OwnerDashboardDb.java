@@ -86,7 +86,7 @@ public class OwnerDashboardDb {
         Tab tab = new Tab("Applications");
         tab.setClosable(false);
 
-        // ===== Filter Controls =====
+        //Filter Controls
         filterGender = new ComboBox<>();
         filterGender.getItems().add("All Genders");
         for (Gender g : Gender.values()) filterGender.getItems().add(g.name());
