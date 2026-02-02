@@ -22,12 +22,7 @@ public class AnnouncementPane extends VBox {
     private Announcement editingAnnouncement;
     private Consumer<String> alertCallback;
     
-    /**
-     * Create announcement pane
-     * @param service The database service
-     * @param createdBy Name to use as author when creating announcements
-     * @param editable Whether this pane allows creating/editing (false for read-only view)
-     */
+  
     public AnnouncementPane(DatabaseDormService service, String createdBy, boolean editable) {
         this.service = service;
         this.createdBy = createdBy;
@@ -95,16 +90,11 @@ public class AnnouncementPane extends VBox {
         this.setPadding(new Insets(10));
     }
     
-    /**
-     * Set callback for showing alerts
-     */
     public void setAlertCallback(Consumer<String> callback) {
         this.alertCallback = callback;
     }
     
-    /**
-     * Refresh the announcement list
-     */
+  
     public void refresh() {
         announcementListView.setItems(FXCollections.observableArrayList(service.getAnnouncements()));
     }
