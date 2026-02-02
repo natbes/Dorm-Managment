@@ -120,9 +120,6 @@ public class ApplicationFilterPane extends VBox {
         this.getChildren().addAll(filterRow1, filterRow2);
     }
     
-    /**
-     * Set callback for when filters are applied
-     */
     public void setOnFilterApplied(Consumer<Void> callback) {
         this.onFilterApplied = callback;
     }
@@ -144,9 +141,6 @@ public class ApplicationFilterPane extends VBox {
         notifyFilterApplied();
     }
     
-    /**
-     * Apply filters to a list of applications
-     */
     public List<DormApplication> applyFilters(List<DormApplication> applications) {
         return applications.stream()
             .filter(this::matchesFilters)
