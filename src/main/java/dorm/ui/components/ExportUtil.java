@@ -18,12 +18,7 @@ public final class ExportUtil {
         // Utility class - prevent instantiation
     }
     
-    /**
-     * Export applications to CSV file
-     * @param applications List of applications to export
-     * @param parentWindow Parent window for file chooser dialog
-     * @return true if export was successful
-     */
+
     public static boolean exportApplicationsToCsv(List<DormApplication> applications, Window parentWindow) {
         FileChooser chooser = new FileChooser();
         chooser.setTitle("Export Applications");
@@ -69,9 +64,6 @@ public final class ExportUtil {
         }
     }
     
-    /**
-     * Escape a value for CSV output
-     */
     private static String escapeCsvValue(String value) {
         if (value == null) {
             return "";
