@@ -82,23 +82,16 @@ public class ApplicationActionsPane extends VBox {
         this.getChildren().addAll(actionRow1, actionRow2);
     }
     
-    /**
-     * Set callback for showing alerts
-     */
-    public void setAlertCallback(Consumer<String> callback) {
+        public void setAlertCallback(Consumer<String> callback) {
         this.alertCallback = callback;
     }
     
-    /**
-     * Set callback for when an action is completed (for refresh)
-     */
+    
     public void setOnActionCompleted(Runnable callback) {
         this.onActionCompleted = callback;
     }
     
-    /**
-     * Set supplier for getting the parent window (for file dialogs)
-     */
+    
     public void setWindowSupplier(Supplier<Window> supplier) {
         this.windowSupplier = supplier;
     }
