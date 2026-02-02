@@ -28,11 +28,7 @@ public class MessagePane extends VBox {
     private final Label charCountLabel;
     private Consumer<String> alertCallback;
     
-    /**
-     * Create message pane for admin/owner
-     * @param service The database service
-     * @param currentUsername Username of the current admin/owner
-     */
+    
     public MessagePane(DatabaseDormService service, String currentUsername) {
         this.service = service;
         this.currentUsername = currentUsername;
@@ -166,16 +162,10 @@ public class MessagePane extends VBox {
         messagesTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
     
-    /**
-     * Set callback for showing alerts
-     */
     public void setAlertCallback(Consumer<String> callback) {
         this.alertCallback = callback;
     }
     
-    /**
-     * Refresh the messages list
-     */
     public void refresh() {
         List<Message> received = service.getMessagesForUser(currentUsername).stream()
             .filter(m -> m.getToUser().equals(currentUsername))
@@ -196,7 +186,7 @@ public class MessagePane extends VBox {
             return;
         }
         
-        // Sanitize message: remove line breaks and trim
+        // remove line breaks and trim
         String message = messageField.getText().trim().replaceAll("[\\r\\n]+", " ");
         service.sendMessage(currentUsername, student.get().getUsername(), message);
         messageField.clear();
