@@ -1,131 +1,60 @@
 package dorm.model;
 
-public class Student extends User {
-    private final String studentId;
-    private Gender gender;
-    private College college;
-    
-    // Phase One - Address info
-    private Residency residency;
-    private String city;
-    private String subcity;
-    private String woreda;
-    private SponsorshipType sponsorshipType;
-    private String disabilityInfo;
-    
-    // Phase Two - Emergency contact & payment
-    private String emergencyContactName;
-    private String emergencyContactPhone;
-    private String transactionId;  // for self-sponsored only
-    
-    // Assignment
-    private String assignedBuilding;
+import java.util.Objects;
 
-    public Student(String id, String username, String password, String displayName, String studentId, Gender gender, College college) {
-        super(id, username, password, Role.STUDENT, displayName);
-        this.studentId = studentId;
-        this.gender = gender;
-        this.college = college;
-        this.assignedBuilding = "unassigned";
+public class User {
+    private final String id;
+    private final String username;
+    private String password;
+    private final Role role;
+    private final String displayName;
+
+    public User(String id, String username, String password, Role role, String displayName) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.displayName = displayName;
     }
 
-    public String getStudentId() {
-        return studentId;
+    public String getId() {
+        return id;
     }
 
-    public Gender getGender() {
-        return gender;
+    public String getUsername() {
+        return username;
     }
 
-    public void setGender(Gender gender) {
-        this.gender = gender;
+    public String getPassword() {
+        return password;
     }
 
-    public College getCollege() {
-        return college;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setCollege(College college) {
-        this.college = college;
+    public Role getRole() {
+        return role;
     }
 
-    public Residency getResidency() {
-        return residency;
+    public String getDisplayName() {
+        return displayName;
     }
 
-    public void setResidency(Residency residency) {
-        this.residency = residency;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        User user = (User) o;
+        return Objects.equals(id, user.id);
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getSubcity() {
-        return subcity;
-    }
-
-    public void setSubcity(String subcity) {
-        this.subcity = subcity;
-    }
-
-    public String getWoreda() {
-        return woreda;
-    }
-
-    public void setWoreda(String woreda) {
-        this.woreda = woreda;
-    }
-
-    public SponsorshipType getSponsorshipType() {
-        return sponsorshipType;
-    }
-
-    public void setSponsorshipType(SponsorshipType sponsorshipType) {
-        this.sponsorshipType = sponsorshipType;
-    }
-
-    public String getDisabilityInfo() {
-        return disabilityInfo;
-    }
-
-    public void setDisabilityInfo(String disabilityInfo) {
-        this.disabilityInfo = disabilityInfo;
-    }
-
-    public String getEmergencyContactName() {
-        return emergencyContactName;
-    }
-
-    public void setEmergencyContactName(String emergencyContactName) {
-        this.emergencyContactName = emergencyContactName;
-    }
-
-    public String getEmergencyContactPhone() {
-        return emergencyContactPhone;
-    }
-
-    public void setEmergencyContactPhone(String emergencyContactPhone) {
-        this.emergencyContactPhone = emergencyContactPhone;
-    }
-
-    public String getTransactionId() {
-        return transactionId;
-    }
-
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
-    }
-
-    public String getAssignedBuilding() {
-        return assignedBuilding;
-    }
-
-    public void setAssignedBuilding(String assignedBuilding) {
-        this.assignedBuilding = assignedBuilding;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }
